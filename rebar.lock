@@ -1,0 +1,8 @@
+[{<<"iso8601">>,
+  {git,"https://github.com/erlsci/iso8601.git",
+       {ref,"75a45046aa790a380d72af85e6a0138f3d1445eb"}},
+  0},
+ {<<"jiffy">>,
+  {git,"https://github.com/davisp/jiffy.git",
+       {ref,"c942525130ff0271bd318715406f234c0dc9bc5a"}},
+  0}].
