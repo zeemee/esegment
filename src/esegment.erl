@@ -3,6 +3,7 @@
 -include("segment.hrl").
 
 %% API exports
+-export([setup/1]).
 -export([track/3, track/4, track/1]).
 -export([identify/2, identify/3, identify/1]).
 -export([alias/2, alias/3, alias/1]).
@@ -21,6 +22,10 @@
 %%====================================================================
 %% API functions
 %%====================================================================
+-spec setup(string()) -> ok.
+setup(WriteKey) ->
+    application:set_env(esegment, write_key, WriteKey).
+
 %% Track API
 -spec track(user_id(), event(), properties()) -> resp().
 track(UserId, Event, Properties) ->
