@@ -31,9 +31,7 @@ setup(WriteKey, AppName, AppVersion) ->
     application:set_env(esegment, write_key, WriteKey),
     application:set_env(esegment, 'app.name', AppName),
     application:set_env(esegment, 'app.version', AppVersion).
-.
 
-%% Track API
 -spec track(user_id(), event(), properties()) -> resp().
 track(UserId, Event, Properties) ->
     track(UserId, Event, Properties, default_context()).
