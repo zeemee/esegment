@@ -24,7 +24,14 @@
 %%====================================================================
 -spec setup(string()) -> ok.
 setup(WriteKey) ->
-    application:set_env(esegment, write_key, WriteKey).
+    setup(WriteKey, <<"esegment">>, <<"0.11">>).
+
+-spec setup(string(), binary(), binary()) -> ok.
+setup(WriteKey, AppName, AppVersion) ->
+    application:set_env(esegment, write_key, WriteKey),
+    application:set_env(esegment, 'app.name', AppName),
+    application:set_env(esegment, 'app.version', AppVersion).
+.
 
 %% Track API
 -spec track(user_id(), event(), properties()) -> resp().
@@ -140,4 +147,13 @@ write_key() ->
     application:get_env(esegment, write_key).
 
 default_context() ->
-    #{}.
+    #{
+        app => default_app()
+    }.
+
+
+default_app() ->
+    #{
+        name => application:get_env(esegment, 'app.name'),
+        version => application:get_env(esegment, 'app.version')
+    }.
