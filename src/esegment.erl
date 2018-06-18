@@ -142,7 +142,7 @@ group(Group) ->
 %% Internal functions
 %%====================================================================
 write_key() ->
-    application:get_env(esegment, write_key).
+    application:get_env(esegment, write_key, "").
 
 default_context() ->
     #{
