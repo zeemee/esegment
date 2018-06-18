@@ -37,7 +37,7 @@ headers(WriteKey) ->
     ].
 
 request(Method, WriteKey, Object) ->
-    {url(Method), headers(WriteKey), {"Content-Type", "application/json"}, jiffy:encode(Object)}.
+    {url(Method), headers(WriteKey), "application/json", jiffy:encode(Object)}.
 
 method(track) ->
     "track";
