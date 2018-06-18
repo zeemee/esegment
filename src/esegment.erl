@@ -152,6 +152,6 @@ default_context() ->
 
 default_app() ->
     #{
-        name => application:get_env(esegment, 'app.name'),
-        version => application:get_env(esegment, 'app.version')
+        name => application:get_env(esegment, 'app.name', <<"esegment">>),
+        version => application:get_env(esegment, 'app.version', <<"0.12">>)
     }.
